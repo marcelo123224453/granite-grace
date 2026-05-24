@@ -34,7 +34,7 @@ type Cat = "pojedyncze" | "podwojne" | "urnowe" | "dzieciece" | "rodzinne" | "no
 
 const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
   { img: n1, type: "Grobowiec rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · Poznań" },
-  { img: n6, type: "wpisać", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
+  { img: n6, type: "wpisać", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · warszwa" },
   { img: n7, type: "wpisać", cats: ["pojedyncze", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
   { img: n8, type: "wpisać", cats: ["rodzinne", "renowacje"], desc: "Granit czarny, polerowany · Szczecin" },
   { img: n9, type: "wpisać", cats: ["renowacje", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
