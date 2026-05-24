@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { z } from "zod";
 import { PageWrap, SectionTitle } from "@/components/SiteLayout";
 import { ArrowRight } from "lucide-react";
-import n1 from "@/assets/nagrobek-1.jpg";
+import n1 from "@/assets/nagrobek-1.jpg";  
 import n2 from "@/assets/nagrobek-2.jpg";
 import n3 from "@/assets/nagrobek-3.jpg";
 import n4 from "@/assets/nagrobek-4.jpg";
@@ -13,6 +13,7 @@ import n6 from "@/assets/673414230_992487589976643_5370561090871691160_n.jpg";
 import n7 from "@/assets/569516638_849008100991260_4224958326701579055_n.jpg";
 import n8 from "@/assets/565679113_846124567946280_8598260601751854206_n.jpg";
 import n9 from "@/assets/564610504_842136365011767_6562503235974255662_n.jpg";
+import n10 from "@/assets/645398866_1540871334707128_799992057582408873_n (1).jpg";
 import nDetal from "@/assets/nagrobek-detal.jpg";
 import nWarsztat from "@/assets/nagrobek-warsztat.jpg";
 
@@ -38,6 +39,7 @@ const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
   { img: n7, type: "wpisać", cats: ["pojedyncze", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
   { img: n8, type: "wpisać", cats: ["rodzinne", "renowacje"], desc: "Granit czarny, polerowany · Szczecin" },
   { img: n9, type: "wpisać", cats: ["renowacje", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
+  { img: n9, type: "kwaitki", cats: ["renowacje", "podwojne"], desc: "hej to sa kwiaty · Szczecin" },
   { img: n2, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, litery złocone" },
   { img: n3, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit jasny z krzyżem · Poznań" },
   { img: n4, type: "Nagrobek nowoczesny", cats: ["nowoczesne", "podwojne"], desc: "Multicolor, forma minimalistyczna" },
