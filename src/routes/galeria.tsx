@@ -13,6 +13,7 @@ import n6 from "@/assets/673414230_992487589976643_5370561090871691160_n.jpg";
 import n7 from "@/assets/569516638_849008100991260_4224958326701579055_n.jpg";
 import n8 from "@/assets/565679113_846124567946280_8598260601751854206_n.jpg";
 import n9 from "@/assets/564610504_842136365011767_6562503235974255662_n.jpg";
+import n10 from "@/assets/703844548_1017523120806423_3790274995248193897_n (2).jpg";
 import nDetal from "@/assets/nagrobek-detal.jpg";
 import nWarsztat from "@/assets/nagrobek-warsztat.jpg";
 
@@ -34,6 +35,7 @@ type Cat = "pojedyncze" | "podwojne" | "urnowe" | "dzieciece" | "rodzinne" | "no
 
 const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
   { img: n1, type: "Grobowiec rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · Poznań" },
+  { img: n10, type: "wpisać s", cats: ["dzieciece"], desc: "granit polerowany · szczecinek" },
   { img: n6, type: "wpisać", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · warszwa" },
   { img: n7, type: "wpisać", cats: ["pojedyncze", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
   { img: n8, type: "wpisać", cats: ["rodzinne", "renowacje"], desc: "Granit czarny, polerowany · Szczecin" },
