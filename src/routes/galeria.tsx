@@ -37,7 +37,6 @@ import n16 from "@/assets/IMG_6018.jpg";
 import n17 from "@/assets/IMG_6025.jpg";
 import n18 from "@/assets/IMG_6026.jpg";
 import n19 from "@/assets/IMG_6029.HEIC";
-import n20 from "@/assets/IMG_6031.HEIC";
 import n21 from "@/assets/IMG_6033.HEIC";
 import n22 from "@/assets/IMG_6034.HEIC";
 import n23 from "@/assets/IMG_6027.jpg";
@@ -117,7 +116,6 @@ const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
   { img: n17, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary, minimalistyczna płyta skośna" },
   { img: n18, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary ciemny, dwa miejsca z stelą" },
   { img: n19, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, klasyczna stela" },
-  { img: n20, type: "Nagrobek rodzinny",              cats: ["rodzinne"],                       desc: "Granit szary i czarny, grobowiec wieloosobowy" },
   { img: n21, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, forma pozioma klasyczna" },
   { img: n22, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary melanż, płyta pozioma szeroka" },
   { img: n23, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, niska płyta z obrzeżem" },
