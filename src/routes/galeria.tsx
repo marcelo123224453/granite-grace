@@ -4,16 +4,20 @@ import { useState, useMemo } from "react";
 import { z } from "zod";
 import { PageWrap, SectionTitle } from "@/components/SiteLayout";
 import { ArrowRight } from "lucide-react";
-import n1 from "@/assets/nagrobek-1.jpg";  
-import n2 from "@/assets/nagrobek-2.jpg";
-import n3 from "@/assets/nagrobek-3.jpg";
-import n4 from "@/assets/nagrobek-4.jpg";
-import n5 from "@/assets/nagrobek-5.jpg";
-import n6 from "@/assets/673414230_992487589976643_5370561090871691160_n.jpg";
-import n7 from "@/assets/569516638_849008100991260_4224958326701579055_n.jpg";
-import n8 from "@/assets/565679113_846124567946280_8598260601751854206_n.jpg";
-import n9 from "@/assets/564610504_842136365011767_6562503235974255662_n.jpg";
-import n10 from "@/assets/703844548_1017523120806423_3790274995248193897_n (2).jpg";
+
+// ── Stare zdjęcia (oryginalne 10) ──
+import nOld1  from "@/assets/nagrobek-1.jpg";
+import nOld2  from "@/assets/nagrobek-2.jpg";
+import nOld3  from "@/assets/nagrobek-3.jpg";
+import nOld4  from "@/assets/nagrobek-4.jpg";
+import nOld5  from "@/assets/nagrobek-5.jpg";
+import nOld6  from "@/assets/673414230_992487589976643_5370561090871691160_n.jpg";
+import nOld7  from "@/assets/569516638_849008100991260_4224958326701579055_n.jpg";
+import nOld8  from "@/assets/565679113_846124567946280_8598260601751854206_n.jpg";
+import nOld9  from "@/assets/564610504_842136365011767_6562503235974255662_n.jpg";
+import nOld10 from "@/assets/703844548_1017523120806423_3790274995248193897_n (2).jpg";
+
+// ── Nowe zdjęcia IMG_6xxx ──
 import n1  from "@/assets/IMG_6006.HEIC";
 import n2  from "@/assets/IMG_6008.HEIC";
 import n3  from "@/assets/IMG_6009.HEIC";
@@ -57,12 +61,14 @@ import n40 from "@/assets/IMG_6050.HEIC";
 import n41 from "@/assets/IMG_6051.HEIC";
 import n42 from "@/assets/IMG_6052.HEIC";
 import n43 from "@/assets/8c6e237b-1af3-4b65-9fd8-d95c1d33134b.jpg";
-import nDetal from "@/assets/nagrobek-detal.jpg";
+import nDetal    from "@/assets/nagrobek-detal.jpg";
 import nWarsztat from "@/assets/nagrobek-warsztat.jpg";
 
 export const Route = createFileRoute("/galeria")({
   validateSearch: z.object({
-    kategoria: z.enum(["wszystkie", "pojedyncze", "podwojne", "urnowe", "dzieciece", "rodzinne", "nowoczesne", "renowacje"]).optional(),
+    kategoria: z
+      .enum(["wszystkie", "pojedyncze", "podwojne", "urnowe", "dzieciece", "rodzinne", "nowoczesne", "renowacje"])
+      .optional(),
   }),
   head: () => ({
     meta: [
@@ -77,68 +83,64 @@ export const Route = createFileRoute("/galeria")({
 type Cat = "pojedyncze" | "podwojne" | "urnowe" | "dzieciece" | "rodzinne" | "nowoczesne" | "renowacje";
 
 const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
-  { img: n1, type: "Grobowiec rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · Poznań" },
-  { img: n10, type: "wpisać s", cats: ["dzieciece"], desc: "granit polerowany · szczecinek" },
-  { img: n6, type: "wpisać", cats: ["rodzinne", "podwojne"], desc: "Granit czarny, polerowany · warszwa" },
-  { img: n7, type: "wpisać", cats: ["pojedyncze", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
-  { img: n8, type: "wpisać", cats: ["rodzinne", "renowacje"], desc: "Granit czarny, polerowany · Szczecin" },
-  { img: n9, type: "wpisać", cats: ["renowacje", "podwojne"], desc: "Granit czarny, polerowany · Szczecin" },
-  { img: n2, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, litery złocone" },
-  { img: n3, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit jasny z krzyżem · Poznań" },
-  { img: n4, type: "Nagrobek nowoczesny", cats: ["nowoczesne", "podwojne"], desc: "Multicolor, forma minimalistyczna" },
-  { img: n5, type: "Nagrobek prawosławny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit szary, krzyż prawosławny" },
-  { img: nDetal, type: "Detal — grafika nagrobka", cats: ["nowoczesne"], desc: "Granit czarny · grawer artystyczny" },
-  { img: nWarsztat, type: "Wybór z naszego zakładu", cats: ["pojedyncze", "podwojne", "nowoczesne"], desc: "Obornicka 306, Poznań" },
-  { img: n1, type: "Renowacja — pełna wymiana", cats: ["renowacje"], desc: "Wymiana płyt i obrzeży" },
-  { img: n2, type: "Renowacja — odświeżenie", cats: ["renowacje"], desc: "Czyszczenie i impregnacja" },
-  { img: n3, type: "Nagrobek dziecięcy", cats: ["dzieciece"], desc: "Granit biały, delikatny" },
-  { img: n4, type: "Grobowiec na urnę", cats: ["urnowe"], desc: "Forma dwuosobowa" },
-  { img: n5, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, klasyczny kształt" },
-  { img: n11, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny połysk, klasyczna stela" },
-  { img: n12, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, stela z bukietem" },
-  { img: n13, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit czarny, grobowiec z kopułą" },
-  { img: n14, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwa miejsca z ogrodzeniem" },
-  { img: n15, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary melanż, forma wieloosobowa" },
-  { img: n16, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit szary melanż, grobowiec z kaplicą" },
-  { img: n17, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, stela z płytą poziomą" },
-  { img: n18, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit szary jasny, minimalistyczna forma skośna" },
-  { img: n19, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny, klasyczna stela z krzyżem" },
-  { img: n20, type: "Nagrobek urnowy", cats: ["urnowe"], desc: "Granit czarny, mała forma na urny" },
- 
-  // ── 4444.png — nagrobki oznaczone nr 11–16 na zdjęciu ──
-  { img: n21, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, wielopoziomowa podstawa" },
-  { img: n22, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarno-szary, płyta skośna połysk" },
-  { img: n23, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit ciemnoszary, stela z tablicą inskrypcji" },
-  { img: n24, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, wielopoziomowa podstawa schodkowa" },
-  { img: n25, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary melanż, forma pozioma klasyczna" },
-  { img: n26, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny połysk, stela z latarnią wbudowaną" },
- 
-  // ── 3333.png — nagrobki oznaczone nr 18–28 na zdjęciu ──
-  { img: n27, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny, wysoka stela, podstawa szara jasna" },
-  { img: n28, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, stela z tablicą inskrypcji" },
-  { img: n29, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, szeroka forma pozioma" },
-  { img: n30, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, prosta forma z krzyżem" },
-  { img: n31, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit ciemnoszary, trójpoziomowa forma rodzinna" },
-  { img: n32, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit różowy, stela z płytą poziomą" },
-  { img: n33, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwa miejsca z wspólną stelą" },
-  { img: n34, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit jasnoszary, niska forma pozioma" },
-  { img: n35, type: "Nagrobek rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit szary, wielomiejscowy z krzyżem" },
-  { img: n36, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit szary melanż, minimalistyczna płyta pozioma" },
-  { img: n37, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary ciemny, klasyczna forma pozioma" },
- 
-  // ── 2222.png — nagrobki oznaczone nr 29–39 na zdjęciu ──
-  { img: n38, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary jasny, dwie tablice forma rodzinna" },
-  { img: n39, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, stela z latarnią" },
-  { img: n40, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny, geometryczna forma schodkowa" },
-  { img: n41, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary jasny, dwie tablice poziome" },
-  { img: n42, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary melanż z czarnym, dwa miejsca" },
-  { img: n43, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwie płyty poziome forma rodzinna" },
-  { img: n44, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit biały i czarny, wielomiejscowy z krzyżem" },
-  { img: n45, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny, minimalistyczna forma schodkowa" },
-  { img: n46, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, niestandartowa podstawa romboidalna" },
-  { img: n47, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, prosta forma pozioma" },
-  { img: n48, type: "Nagrobek rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit czarny i czerwony, trzy tablice rodzinne" },
-  { img: n49, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, forma klasyczna" },
+  // ── Stare zdjęcia (oryginalne) ──
+  { img: nOld1,  type: "Grobowiec rodzinny",         cats: ["rodzinne", "podwojne"],           desc: "Granit czarny, polerowany · Poznań" },
+  { img: nOld10, type: "Nagrobek dziecięcy",          cats: ["dzieciece"],                      desc: "Granit polerowany · Szczecinek" },
+  { img: nOld6,  type: "Nagrobek rodzinny",           cats: ["rodzinne", "podwojne"],           desc: "Granit czarny, polerowany · Warszawa" },
+  { img: nOld7,  type: "Nagrobek podwójny",           cats: ["pojedyncze", "podwojne"],         desc: "Granit czarny, polerowany · Szczecin" },
+  { img: nOld8,  type: "Nagrobek z renowacją",        cats: ["rodzinne", "renowacje"],          desc: "Granit czarny, polerowany · Szczecin" },
+  { img: nOld9,  type: "Renowacja podwójna",          cats: ["renowacje", "podwojne"],          desc: "Granit czarny, polerowany · Szczecin" },
+  { img: nOld2,  type: "Nagrobek podwójny",           cats: ["podwojne"],                       desc: "Granit szary, litery złocone" },
+  { img: nOld3,  type: "Nagrobek pojedynczy",         cats: ["pojedyncze"],                     desc: "Granit jasny z krzyżem · Poznań" },
+  { img: nOld4,  type: "Nagrobek nowoczesny",         cats: ["nowoczesne", "podwojne"],         desc: "Multicolor, forma minimalistyczna" },
+  { img: nOld5,  type: "Nagrobek prawosławny",        cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary, krzyż prawosławny" },
+  { img: nDetal,    type: "Detal — grafika nagrobka", cats: ["nowoczesne"],                     desc: "Granit czarny · grawer artystyczny" },
+  { img: nWarsztat, type: "Wybór z naszego zakładu",  cats: ["pojedyncze", "podwojne", "nowoczesne"], desc: "Obornicka 306, Poznań" },
+
+  // ── Nowe zdjęcia IMG_6xxx (n1–n43) ──
+  { img: n1,  type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, stela z latarnią" },
+  { img: n2,  type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary, forma pozioma klasyczna" },
+  { img: n3,  type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, płyta pozioma" },
+  { img: n4,  type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary, skośna płyta nowoczesna" },
+  { img: n5,  type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, stela klasyczna" },
+  { img: n6,  type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit różowy, minimalistyczna forma" },
+  { img: n7,  type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary ciemny, płyta pozioma" },
+  { img: n8,  type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit czarny, geometryczna stela" },
+  { img: n9,  type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary, dwa miejsca z stelą" },
+  { img: n10, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, forma pozioma" },
+  { img: n11, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary, stela z tablicą" },
+  { img: n12, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit czarny, schodkowa forma z stelą" },
+  { img: n13, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, płyta pozioma niska" },
+  { img: n14, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary, płyta z obrzeżem" },
+  { img: n15, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary, dwa miejsca forma szeroka" },
+  { img: n16, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit różowy melanż, stela klasyczna" },
+  { img: n17, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary, minimalistyczna płyta skośna" },
+  { img: n18, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary ciemny, dwa miejsca z stelą" },
+  { img: n19, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, klasyczna stela" },
+  { img: n20, type: "Nagrobek rodzinny",              cats: ["rodzinne"],                       desc: "Granit szary i czarny, grobowiec wieloosobowy" },
+  { img: n21, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, forma pozioma klasyczna" },
+  { img: n22, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary melanż, płyta pozioma szeroka" },
+  { img: n23, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, niska płyta z obrzeżem" },
+  { img: n24, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary, dwa miejsca forma szeroka" },
+  { img: n25, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, stela z rzeźbą anioła" },
+  { img: n26, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary jasny, geometryczna forma" },
+  { img: n27, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary jasny, dwa miejsca z krzyżem" },
+  { img: n28, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary melanż, forma z obrzeżem" },
+  { img: n29, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit czarny, dwa miejsca klasyczne" },
+  { img: n30, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary jasny, skośna płyta nowoczesna" },
+  { img: n31, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary, minimalistyczna płyta pozioma" },
+  { img: n32, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit czarny, geometryczna stela z latarnią" },
+  { img: n33, type: "Nagrobek podwójny",              cats: ["podwojne"],                       desc: "Granit szary jasny, dwie płyty poziome" },
+  { img: n34, type: "Nagrobek urnowy",                cats: ["urnowe"],                         desc: "Granit czarny, mała forma na urny" },
+  { img: n35, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit biały, wysoka stela minimalistyczna" },
+  { img: n36, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, klasyczna forma pozioma" },
+  { img: n37, type: "Nagrobek rodzinny",              cats: ["rodzinne"],                       desc: "Granit szary, grobowiec z rzeźbą anioła" },
+  { img: n38, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit czarny i szary, forma schodkowa" },
+  { img: n39, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit szary jasny, płyta pozioma niska" },
+  { img: n40, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit szary jasny, szeroka płyta nowoczesna" },
+  { img: n41, type: "Nagrobek pojedynczy",            cats: ["pojedyncze"],                     desc: "Granit czarny, stela z bukietem" },
+  { img: n42, type: "Nagrobek nowoczesny",            cats: ["pojedyncze", "nowoczesne"],       desc: "Granit czarny, minimalistyczna forma z stelą" },
+  { img: n43, type: "Nagrobek rodzinny",              cats: ["rodzinne"],                       desc: "Granit szary jasny, grobowiec wieloosobowy" },
 ];
 
 const FILTERS: { key: "wszystkie" | Cat; label: string }[] = [
