@@ -14,6 +14,49 @@ import n7 from "@/assets/569516638_849008100991260_4224958326701579055_n.jpg";
 import n8 from "@/assets/565679113_846124567946280_8598260601751854206_n.jpg";
 import n9 from "@/assets/564610504_842136365011767_6562503235974255662_n.jpg";
 import n10 from "@/assets/703844548_1017523120806423_3790274995248193897_n (2).jpg";
+import n1  from "@/assets/IMG_6006.HEIC";
+import n2  from "@/assets/IMG_6008.HEIC";
+import n3  from "@/assets/IMG_6009.HEIC";
+import n4  from "@/assets/IMG_6015.HEIC";
+import n5  from "@/assets/IMG_6016.HEIC";
+import n6  from "@/assets/IMG_6011.jpg";
+import n7  from "@/assets/IMG_6012.jpg";
+import n8  from "@/assets/IMG_6013.jpg";
+import n9  from "@/assets/IMG_6014.jpg";
+import n10 from "@/assets/IMG_6017.HEIC";
+import n11 from "@/assets/IMG_6019.HEIC";
+import n12 from "@/assets/IMG_6020.HEIC";
+import n13 from "@/assets/IMG_6021.HEIC";
+import n14 from "@/assets/IMG_6022.HEIC";
+import n15 from "@/assets/IMG_6023.HEIC";
+import n16 from "@/assets/IMG_6018.jpg";
+import n17 from "@/assets/IMG_6025.jpg";
+import n18 from "@/assets/IMG_6026.jpg";
+import n19 from "@/assets/IMG_6029.HEIC";
+import n20 from "@/assets/IMG_6031.HEIC";
+import n21 from "@/assets/IMG_6033.HEIC";
+import n22 from "@/assets/IMG_6034.HEIC";
+import n23 from "@/assets/IMG_6027.jpg";
+import n24 from "@/assets/IMG_6028.jpg";
+import n25 from "@/assets/IMG_6030.PNG";
+import n26 from "@/assets/IMG_6032.jpg";
+import n27 from "@/assets/IMG_6035.HEIC";
+import n28 from "@/assets/IMG_6036.HEIC";
+import n29 from "@/assets/IMG_6037.HEIC";
+import n30 from "@/assets/IMG_6038.HEIC";
+import n31 from "@/assets/IMG_6039.HEIC";
+import n32 from "@/assets/IMG_6040.HEIC";
+import n33 from "@/assets/IMG_6042.HEIC";
+import n34 from "@/assets/IMG_6043.HEIC";
+import n35 from "@/assets/IMG_6044.HEIC";
+import n36 from "@/assets/IMG_6046.HEIC";
+import n37 from "@/assets/IMG_6047.HEIC";
+import n38 from "@/assets/IMG_6048.HEIC";
+import n39 from "@/assets/IMG_6049.HEIC";
+import n40 from "@/assets/IMG_6050.HEIC";
+import n41 from "@/assets/IMG_6051.HEIC";
+import n42 from "@/assets/IMG_6052.HEIC";
+import n43 from "@/assets/8c6e237b-1af3-4b65-9fd8-d95c1d33134b.jpg";
 import nDetal from "@/assets/nagrobek-detal.jpg";
 import nWarsztat from "@/assets/nagrobek-warsztat.jpg";
 
@@ -51,6 +94,51 @@ const items: { img: string; type: string; cats: Cat[]; desc: string }[] = [
   { img: n3, type: "Nagrobek dziecięcy", cats: ["dzieciece"], desc: "Granit biały, delikatny" },
   { img: n4, type: "Grobowiec na urnę", cats: ["urnowe"], desc: "Forma dwuosobowa" },
   { img: n5, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, klasyczny kształt" },
+  { img: n11, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny połysk, klasyczna stela" },
+  { img: n12, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, stela z bukietem" },
+  { img: n13, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit czarny, grobowiec z kopułą" },
+  { img: n14, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwa miejsca z ogrodzeniem" },
+  { img: n15, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary melanż, forma wieloosobowa" },
+  { img: n16, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit szary melanż, grobowiec z kaplicą" },
+  { img: n17, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, stela z płytą poziomą" },
+  { img: n18, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit szary jasny, minimalistyczna forma skośna" },
+  { img: n19, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny, klasyczna stela z krzyżem" },
+  { img: n20, type: "Nagrobek urnowy", cats: ["urnowe"], desc: "Granit czarny, mała forma na urny" },
+ 
+  // ── 4444.png — nagrobki oznaczone nr 11–16 na zdjęciu ──
+  { img: n21, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, wielopoziomowa podstawa" },
+  { img: n22, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarno-szary, płyta skośna połysk" },
+  { img: n23, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit ciemnoszary, stela z tablicą inskrypcji" },
+  { img: n24, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, wielopoziomowa podstawa schodkowa" },
+  { img: n25, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary melanż, forma pozioma klasyczna" },
+  { img: n26, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny połysk, stela z latarnią wbudowaną" },
+ 
+  // ── 3333.png — nagrobki oznaczone nr 18–28 na zdjęciu ──
+  { img: n27, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit czarny, wysoka stela, podstawa szara jasna" },
+  { img: n28, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, stela z tablicą inskrypcji" },
+  { img: n29, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, szeroka forma pozioma" },
+  { img: n30, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, prosta forma z krzyżem" },
+  { img: n31, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit ciemnoszary, trójpoziomowa forma rodzinna" },
+  { img: n32, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit różowy, stela z płytą poziomą" },
+  { img: n33, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwa miejsca z wspólną stelą" },
+  { img: n34, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit jasnoszary, niska forma pozioma" },
+  { img: n35, type: "Nagrobek rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit szary, wielomiejscowy z krzyżem" },
+  { img: n36, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit szary melanż, minimalistyczna płyta pozioma" },
+  { img: n37, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary ciemny, klasyczna forma pozioma" },
+ 
+  // ── 2222.png — nagrobki oznaczone nr 29–39 na zdjęciu ──
+  { img: n38, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary jasny, dwie tablice forma rodzinna" },
+  { img: n39, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, stela z latarnią" },
+  { img: n40, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny, geometryczna forma schodkowa" },
+  { img: n41, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary jasny, dwie tablice poziome" },
+  { img: n42, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary melanż z czarnym, dwa miejsca" },
+  { img: n43, type: "Nagrobek podwójny", cats: ["podwojne"], desc: "Granit szary, dwie płyty poziome forma rodzinna" },
+  { img: n44, type: "Nagrobek rodzinny", cats: ["rodzinne"], desc: "Granit biały i czarny, wielomiejscowy z krzyżem" },
+  { img: n45, type: "Nagrobek nowoczesny", cats: ["pojedyncze", "nowoczesne"], desc: "Granit czarny, minimalistyczna forma schodkowa" },
+  { img: n46, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, niestandartowa podstawa romboidalna" },
+  { img: n47, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary jasny, prosta forma pozioma" },
+  { img: n48, type: "Nagrobek rodzinny", cats: ["rodzinne", "podwojne"], desc: "Granit czarny i czerwony, trzy tablice rodzinne" },
+  { img: n49, type: "Nagrobek pojedynczy", cats: ["pojedyncze"], desc: "Granit szary, forma klasyczna" },
 ];
 
 const FILTERS: { key: "wszystkie" | Cat; label: string }[] = [
