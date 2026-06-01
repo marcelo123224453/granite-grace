@@ -42,11 +42,30 @@ function KontaktPage() {
       return;
     }
     setSubmitting(true);
-    // Placeholder submit — integrate Resend/Formspree on the server
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitting(false);
-    setSent(true);
-    toast.success("Dziękujemy! Skontaktujemy się wkrótce.");
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          inquiry: form.inquiry,
+          kind: form.kind,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setSent(true);
+        toast.success("Dziękujemy! Skontaktujemy się wkrótce.");
+      } else {
+        toast.error("Błąd wysyłania. Spróbuj ponownie.");
+      }
+    } catch {
+      toast.error("Brak połączenia. Spróbuj ponownie.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
