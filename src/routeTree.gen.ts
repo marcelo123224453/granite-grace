@@ -15,6 +15,7 @@ import { Route as OfertaRouteImport } from './routes/oferta'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiSendEmailRouteImport } from './routes/api/send-email'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -46,6 +47,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSendEmailRoute = ApiSendEmailRouteImport.update({
+  id: '/api/send-email',
+  path: '/api/send-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/oferta': typeof OfertaRoute
   '/opinie': typeof OpinieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/send-email': typeof ApiSendEmailRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/oferta': typeof OfertaRoute
   '/opinie': typeof OpinieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/send-email': typeof ApiSendEmailRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/oferta': typeof OfertaRoute
   '/opinie': typeof OpinieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/send-email': typeof ApiSendEmailRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/oferta'
     | '/opinie'
     | '/sitemap.xml'
+    | '/api/send-email'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galeria' | '/kontakt' | '/oferta' | '/opinie' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/galeria'
+    | '/kontakt'
+    | '/oferta'
+    | '/opinie'
+    | '/sitemap.xml'
+    | '/api/send-email'
   id:
     | '__root__'
     | '/'
@@ -91,6 +108,7 @@ export interface FileRouteTypes {
     | '/oferta'
     | '/opinie'
     | '/sitemap.xml'
+    | '/api/send-email'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,6 +118,7 @@ export interface RootRouteChildren {
   OfertaRoute: typeof OfertaRoute
   OpinieRoute: typeof OpinieRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiSendEmailRoute: typeof ApiSendEmailRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -146,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/send-email': {
+      id: '/api/send-email'
+      path: '/api/send-email'
+      fullPath: '/api/send-email'
+      preLoaderRoute: typeof ApiSendEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -156,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   OfertaRoute: OfertaRoute,
   OpinieRoute: OpinieRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiSendEmailRoute: ApiSendEmailRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
