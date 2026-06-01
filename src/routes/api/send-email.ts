@@ -107,9 +107,9 @@ export const APIRoute = createAPIFileRoute("/api/send-email")({
       body: JSON.stringify({
         // ⚠️ ZMIEŃ na swoją zweryfikowaną domenę w Resend
         // np. "kontakt@nagrobex.pl" lub "noreply@nagrobex.pl"
-        from: "NAGROBEX <kontakt@nagrobex.pl>",
+        from: "NAGROBEX <nagrobex-kontakt@wp.pl>",
         // ⚠️ ZMIEŃ na adres który ma odbierać maile
-        to: ["nagrobex@gmail.com"],
+        to: ["nagrobex-kontakt@wp.pl"],
         reply_to: email || undefined,
         subject: `Nowe zapytanie od ${name} — ${inquiry}`,
         html: htmlBody,
